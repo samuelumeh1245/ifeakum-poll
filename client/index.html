@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ifeakum Polls</title>
+  <!-- Link to the separate CSS file -->
+  <link rel="stylesheet" href="style.css">
+  <!-- A basic emoji favicon so it looks real in the browser tab -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
+</head>
+<body>
+
+  <header>
+    <h1>Ifeakum Polls</h1>
+    <nav id="nav-auth" style="display: none;">
+      <span id="user-greeting"></span>
+      <button onclick="logout()" class="btn-secondary">Logout</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- AUTHENTICATION SECTION -->
+    <section id="auth-section">
+      <h2>Welcome</h2>
+      <div class="auth-box">
+        <h3>Login</h3>
+        <input type="text" id="login-username" placeholder="Username">
+        <input type="password" id="login-password" placeholder="Password">
+        <button onclick="login()">Login</button>
+      </div>
+      <div class="auth-box">
+        <h3>Register</h3>
+        <input type="text" id="reg-username" placeholder="Choose Username">
+        <input type="password" id="reg-password" placeholder="Choose Password">
+        <button onclick="register()">Create Account</button>
+      </div>
+    </section>
+
+    <!-- CREATE POLL SECTION (Hidden until login) -->
+    <section id="create-section" style="display: none;">
+      <h2>Create a poll</h2>
+      <input type="text" id="poll-question" placeholder="Question (e.g. Where should we eat today?)">
+      <textarea id="poll-options" placeholder="One option per line:&#10;Pizza&#10;Burger&#10;Fried Rice"></textarea>
+      <button onclick="createPoll()" id="create-btn">Create Poll</button>
+    </section>
+
+    <!-- DISPLAY POLLS SECTION (Hidden until login) -->
+    <section id="polls-section" style="display: none;">
+      <h2>My Polls</h2>
+      <div id="polls-list"></div>
+    </section>
+        <!-- VOTING SECTION (Only shows when opening a share link) -->
+    <section id="vote-section" style="display: none;">
+      <h2>Cast your vote</h2>
+      <h3 id="vote-question" style="color: #1f6feb; margin-bottom: 20px;"></h3>
+      <form id="vote-form" onsubmit="submitVote(event)">
+        <div id="vote-options"></div>
+        <button type="submit" style="margin-top: 15px;">Submit Vote</button>
+      </form>
+      <p id="vote-message" style="margin-top: 15px; color: green; font-weight: bold;"></p>
+    </section>
+  </main>
+
+  <!-- Link to the JavaScript file -->
+  <script src="app.js"></script>
+</body>
+</html>
