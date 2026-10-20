@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000/api';
+const API_URL = 'https://ifeakum-poll-api.onrender.com/api';
 
 // --- AUTHENTICATION LOGIC (Unchanged) ---
 async function register() {
